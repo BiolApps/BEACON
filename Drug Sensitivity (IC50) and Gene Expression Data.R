@@ -1,3 +1,24 @@
+# ------------------------------------------------------------
+# Script: Download and merge GDSC gene expression and IC50 data
+#
+# Description:
+# This script downloads dose–response (IC50) data for all drugs from
+# the Genomics of Drug Sensitivity in Cancer (GDSC) database and
+# extracts RNA-seq gene expression data from the PharmacoGx GDSC dataset.
+# It filters the IC50 data for a selected drug, standardizes cell line
+# names, and merges the expression and drug response datasets.
+# The resulting merged dataset is exported as a CSV file for downstream
+# analysis.
+#
+# Main steps:
+#   1. Download GDSC1 and GDSC2 IC50 data (Excel files).
+#   2. Download GDSC_2020(v2-8.2) gene expression data from PharmacoGx.
+#   3. Clean and standardize cell line names.
+#   4. Filter IC50 data for a selected drug.
+#   5. Merge IC50 data with gene expression profiles.
+#   6. Export merged dataset to CSV.
+# ------------------------------------------------------------
+
 # ----------- Load required libraries (install if missing) -----------
 required_packages <- c("readxl", "tidyverse", "PharmacoGx", "rio")
 
