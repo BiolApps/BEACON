@@ -1,8 +1,15 @@
-# Load required libraries
-library(readxl)
-library(tidyverse)
-library(PharmacoGx)
-library(rio)
+# ----------- Load required libraries (install if missing) -----------
+required_packages <- c("readxl", "tidyverse", "PharmacoGx", "rio")
+
+# Install missing packages
+installed <- required_packages %in% installed.packages()[, "Package"]
+if (any(!installed)) {
+  install.packages(required_packages[!installed])
+}
+
+# Load all packages
+lapply(required_packages, library, character.only = TRUE)
+
 
 # ------------------------------
 # Download and load GDSC dose-response data (IC50)
